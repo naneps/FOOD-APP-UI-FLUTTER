@@ -58,17 +58,55 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
-                    demoMediumCardData.length,
-                    (index) => RestaurantInfoMediumCard(
+                  demoMediumCardData.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(left: defaultPadding),
+                    child: RestaurantInfoMediumCard(
                         title: demoMediumCardData[index]['name'],
                         image: demoMediumCardData[index]['image'],
                         location: demoMediumCardData[index]['location'],
                         deliveryTime: demoMediumCardData[index]['delivertTime'],
                         rating: demoMediumCardData[index]['rating'],
-                        press: () {})),
+                        press: () {}),
+                  ),
+                ),
               ),
             ),
-          )
+          ),
+          SliverPadding(
+            padding: EdgeInsets.all(defaultPadding),
+            sliver: SliverToBoxAdapter(
+                child: Image.asset('assets/images/Banner.png')),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.all(defaultPadding),
+            sliver: SliverToBoxAdapter(
+              child: SectionTitle(
+                title: "Best Sale",
+                press: () {},
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  demoMediumCardData.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(left: defaultPadding),
+                    child: RestaurantInfoMediumCard(
+                        title: demoMediumCardData[index]['name'],
+                        image: demoMediumCardData[index]['image'],
+                        location: demoMediumCardData[index]['location'],
+                        deliveryTime: demoMediumCardData[index]['delivertTime'],
+                        rating: demoMediumCardData[index]['rating'],
+                        press: () {}),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
